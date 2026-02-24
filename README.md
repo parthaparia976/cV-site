@@ -1,57 +1,65 @@
-# Autoprefixer [![Cult Of Martians][cult-img]][cult]
+# Browserslist
 
-<img align="right" width="94" height="71"
-     src="https://postcss.github.io/autoprefixer/logo.svg"
-     title="Autoprefixer logo by Anton Lovchikov">
+<img width="120" height="120" alt="Browserslist logo by Anton Popov"
+     src="https://browsersl.ist/logo.svg" align="right">
 
-[PostCSS] plugin to parse CSS and add vendor prefixes to CSS rules using values
-from [Can I Use]. It is recommended by Google and used in Twitter and Alibaba.
+The config to share target browsers and Node.js versions between different
+front-end tools. It is used in:
 
-Write your CSS rules without vendor prefixes (in fact, forget about them
-entirely):
+* [Autoprefixer]
+* [Babel]
+* [postcss-preset-env]
+* [eslint-plugin-compat]
+* [stylelint-no-unsupported-browser-features]
+* [postcss-normalize]
+* [obsolete-webpack-plugin]
 
-```css
-::placeholder {
-  color: gray;
-}
+All tools will find target browsers automatically,
+when you add the following to `package.json`:
 
-.image {
-  width: stretch;
-}
+```json
+  "browserslist": [
+    "defaults and fully supports es6-module",
+    "maintained node versions"
+  ]
 ```
 
-Autoprefixer will use the data based on current browser popularity and property
-support to apply prefixes for you. You can try the [interactive demo]
-of Autoprefixer.
+Or in `.browserslistrc` config:
 
-```css
-::-moz-placeholder {
-  color: gray;
-}
-::placeholder {
-  color: gray;
-}
+```yaml
+# Browsers that we support
 
-.image {
-  width: -webkit-fill-available;
-  width: -moz-available;
-  width: stretch;
-}
+defaults and fully supports es6-module
+maintained node versions
 ```
 
-Twitter account for news and releases: [@autoprefixer].
+Developers set their version lists using queries like `last 2 versions`
+to be free from updating versions manually.
+Browserslist will use [`caniuse-lite`] with [Can I Use] data for this queries.
 
-<a href="https://evilmartians.com/?utm_source=autoprefixer">
-<img src="https://evilmartians.com/badges/sponsored-by-evil-martians.svg" alt="Sponsored by Evil Martians" width="236" height="54">
+You can check how config works at our playground: [`browsersl.ist`](https://browsersl.ist/)
+
+<a href="https://browsersl.ist/">
+  <img src="/img/screenshot.webp" alt="browsersl.ist website">
 </a>
 
-[interactive demo]: https://autoprefixer.github.io/
-[@autoprefixer]:    https://twitter.com/autoprefixer
-[Can I Use]:        https://caniuse.com/
-[cult-img]:         https://cultofmartians.com/assets/badges/badge.svg
-[PostCSS]:          https://github.com/postcss/postcss
-[cult]:             https://cultofmartians.com/tasks/autoprefixer-grid.html
+<br>
+<br>
+<div align="center">
+  <a href="https://evilmartians.com/?utm_source=browserslist"><img src="https://evilmartians.com/badges/sponsored-by-evil-martians.svg" alt="Sponsored by Evil Martians" width="236" height="54"></a>  <a href="https://cube.dev/?ref=eco-browserslist-github"><img src="https://user-images.githubusercontent.com/986756/154330861-d79ab8ec-aacb-4af8-9e17-1b28f1eccb01.svg" alt="Supported by Cube" width="227" height="46"></a>
+</div>
 
+[stylelint-no-unsupported-browser-features]: https://github.com/ismay/stylelint-no-unsupported-browser-features
+[obsolete-webpack-plugin]:                   https://github.com/ElemeFE/obsolete-webpack-plugin
+[eslint-plugin-compat]:                      https://github.com/amilajack/eslint-plugin-compat
+[Browserslist Example]:                      https://github.com/browserslist/browserslist-example
+[postcss-preset-env]:                        https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env
+[postcss-normalize]:                         https://github.com/csstools/postcss-normalize
+[`browsersl.ist`]:                           https://browsersl.ist/
+[`caniuse-lite`]:                            https://github.com/ben-eb/caniuse-lite
+[Autoprefixer]:                              https://github.com/postcss/autoprefixer
+[Can I Use]:                                 https://caniuse.com/
+[Babel]:                                     https://github.com/babel/babel/tree/master/packages/babel-preset-env
 
 ## Docs
-Read full docs **[here](https://github.com/postcss/autoprefixer#readme)**.
+Read full docs **[here](https://github.com/browserslist/browserslist#readme)**.
